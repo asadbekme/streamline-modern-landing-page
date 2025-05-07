@@ -1,28 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { CheckCircle2, Loader2 } from "lucide-react"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { CheckCircle2, Loader2 } from "lucide-react";
 
 // Form validation schema
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   company: z.string().optional(),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-})
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
+});
 
-type FormValues = z.infer<typeof formSchema>
+type FormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -32,20 +41,20 @@ export function ContactForm() {
       company: "",
       message: "",
     },
-  })
+  });
 
   async function onSubmit(data: FormValues) {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    console.log("Form submitted:", data)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    console.log("Form submitted:", data);
+    setIsSubmitting(false);
+    setIsSubmitted(true);
 
     // Reset form after submission
-    form.reset()
+    form.reset();
   }
 
   if (isSubmitted) {
@@ -55,12 +64,18 @@ export function ContactForm() {
           <CheckCircle2 className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
         </div>
         <h3 className="text-xl font-bold">Message Sent!</h3>
-        <p className="text-muted-foreground">Thank you for reaching out. Our team will get back to you shortly.</p>
-        <Button variant="outline" onClick={() => setIsSubmitted(false)} className="mt-4">
+        <p className="text-muted-foreground">
+          Thank you for reaching out. Our team will get back to you shortly.
+        </p>
+        <Button
+          variant="outline"
+          onClick={() => setIsSubmitted(false)}
+          className="mt-4"
+        >
           Send Another Message
         </Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -114,13 +129,21 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Tell us how we can help you..." className="min-h-[120px]" {...field} />
+                <Textarea
+                  placeholder="Tell us how we can help you..."
+                  className="min-h-[120px]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-600" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          className="w-full bg-emerald-500 hover:bg-emerald-600"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -132,5 +155,5 @@ export function ContactForm() {
         </Button>
       </form>
     </Form>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import Link from "next/link"
-import Image from "next/image"
-import { MobileNav } from "@/components/mobile-nav"
-import { ContactForm } from "@/components/contact-form"
-import { AnimatedSection } from "@/components/animated-section"
-import { AnimatedList } from "@/components/animated-list"
-import { ButtonWithAnimation } from "@/components/button-with-animation"
+import Link from "next/link";
+import Image from "next/image";
+import { MobileNav } from "@/components/mobile-nav";
+import { ContactForm } from "@/components/contact-form";
+import { AnimatedSection } from "@/components/animated-section";
+import { AnimatedList } from "@/components/animated-list";
+import { ButtonWithAnimation } from "@/components/button-with-animation";
 import {
   CheckCircle2,
   ArrowRight,
@@ -16,14 +16,14 @@ import {
   Zap,
   Shield,
   Clock,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto px-4 md:px-6 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <BarChart3 className="h-6 w-6 text-emerald-500" />
             <span className="text-xl font-bold">StreamLine</span>
@@ -31,16 +31,28 @@ export default function LandingPage() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium hover:text-emerald-500 transition-colors">
+            <Link
+              href="#features"
+              className="text-sm font-medium hover:text-emerald-500 transition-colors"
+            >
               Features
             </Link>
-            <Link href="#testimonials" className="text-sm font-medium hover:text-emerald-500 transition-colors">
+            <Link
+              href="#testimonials"
+              className="text-sm font-medium hover:text-emerald-500 transition-colors"
+            >
               Testimonials
             </Link>
-            <Link href="#pricing" className="text-sm font-medium hover:text-emerald-500 transition-colors">
+            <Link
+              href="#pricing"
+              className="text-sm font-medium hover:text-emerald-500 transition-colors"
+            >
               Pricing
             </Link>
-            <Link href="#contact" className="text-sm font-medium hover:text-emerald-500 transition-colors">
+            <Link
+              href="#contact"
+              className="text-sm font-medium hover:text-emerald-500 transition-colors"
+            >
               Contact
             </Link>
           </nav>
@@ -52,34 +64,45 @@ export default function LandingPage() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <ButtonWithAnimation className="bg-emerald-500 hover:bg-emerald-600">Get Started</ButtonWithAnimation>
+            <ButtonWithAnimation className="bg-emerald-500 hover:bg-emerald-600">
+              Get Started
+            </ButtonWithAnimation>
           </div>
         </div>
       </header>
 
-      <main className="flex-1">
+      <main>
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <AnimatedSection className="flex flex-col justify-center space-y-4" direction="left">
+              <AnimatedSection
+                className="flex flex-col justify-center space-y-4"
+                direction="left"
+              >
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Streamline Your Workflow, Amplify Your Results
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    The all-in-one platform that helps teams collaborate, manage projects, and deliver results faster
-                    than ever before.
+                    The all-in-one platform that helps teams collaborate, manage
+                    projects, and deliver results faster than ever before.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <ButtonWithAnimation className="bg-emerald-500 hover:bg-emerald-600">
                     Start Free Trial
                   </ButtonWithAnimation>
-                  <ButtonWithAnimation variant="outline">Book a Demo</ButtonWithAnimation>
+                  <ButtonWithAnimation variant="outline">
+                    Book a Demo
+                  </ButtonWithAnimation>
                 </div>
               </AnimatedSection>
-              <AnimatedSection className="mx-auto" direction="right" delay={300}>
+              <AnimatedSection
+                className="mx-auto"
+                direction="right"
+                delay={300}
+              >
                 <Image
                   src="/placeholder.svg?height=550&width=550"
                   width={550}
@@ -93,16 +116,22 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-emerald-100 px-3 py-1 text-sm text-emerald-700">
                   Features
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Everything You Need in One Place</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  Everything You Need in One Place
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Our platform provides all the tools you need to manage your projects efficiently and effectively.
+                  Our platform provides all the tools you need to manage your
+                  projects efficiently and effectively.
                 </p>
               </div>
             </AnimatedSection>
@@ -116,7 +145,8 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold">Lightning Fast</h3>
                 <p className="text-center text-sm text-muted-foreground">
-                  Our platform is optimized for speed, ensuring your team can work without delays.
+                  Our platform is optimized for speed, ensuring your team can
+                  work without delays.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -125,7 +155,8 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold">Secure</h3>
                 <p className="text-center text-sm text-muted-foreground">
-                  Enterprise-grade security to keep your data safe and protected at all times.
+                  Enterprise-grade security to keep your data safe and protected
+                  at all times.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -134,7 +165,8 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold">Analytics</h3>
                 <p className="text-center text-sm text-muted-foreground">
-                  Comprehensive analytics to help you make data-driven decisions.
+                  Comprehensive analytics to help you make data-driven
+                  decisions.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -143,7 +175,8 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold">Time-Saving</h3>
                 <p className="text-center text-sm text-muted-foreground">
-                  Automation features that save your team hours of manual work every week.
+                  Automation features that save your team hours of manual work
+                  every week.
                 </p>
               </div>
             </AnimatedList>
@@ -152,15 +185,18 @@ export default function LandingPage() {
 
         {/* Testimonials Section */}
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-emerald-100 px-3 py-1 text-sm text-emerald-700">
                   Testimonials
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Loved by Teams Worldwide</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  Loved by Teams Worldwide
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Don't just take our word for it. See what our customers have to say.
+                  Don't just take our word for it. See what our customers have
+                  to say.
                 </p>
               </div>
             </AnimatedSection>
@@ -171,43 +207,51 @@ export default function LandingPage() {
               <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">
-                    "StreamLine has completely transformed how our team works. We've cut our project delivery time in
-                    half!"
+                    "StreamLine has completely transformed how our team works.
+                    We've cut our project delivery time in half!"
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 pt-4">
                   <div className="rounded-full bg-muted h-10 w-10"></div>
                   <div>
                     <p className="text-sm font-medium">Sarah Johnson</p>
-                    <p className="text-xs text-muted-foreground">CTO, TechCorp</p>
+                    <p className="text-xs text-muted-foreground">
+                      CTO, TechCorp
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">
-                    "The analytics features alone are worth the investment. We've gained insights we never had before."
+                    "The analytics features alone are worth the investment.
+                    We've gained insights we never had before."
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 pt-4">
                   <div className="rounded-full bg-muted h-10 w-10"></div>
                   <div>
                     <p className="text-sm font-medium">Michael Chen</p>
-                    <p className="text-xs text-muted-foreground">Product Manager, InnovateCo</p>
+                    <p className="text-xs text-muted-foreground">
+                      Product Manager, InnovateCo
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">
-                    "Customer support is exceptional. Any issues we've had were resolved within hours, not days."
+                    "Customer support is exceptional. Any issues we've had were
+                    resolved within hours, not days."
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 pt-4">
                   <div className="rounded-full bg-muted h-10 w-10"></div>
                   <div>
                     <p className="text-sm font-medium">Emily Rodriguez</p>
-                    <p className="text-xs text-muted-foreground">Operations Director, GrowthLabs</p>
+                    <p className="text-xs text-muted-foreground">
+                      Operations Director, GrowthLabs
+                    </p>
                   </div>
                 </div>
               </div>
@@ -216,27 +260,42 @@ export default function LandingPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
+        <section
+          id="pricing"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-emerald-100 px-3 py-1 text-sm text-emerald-700">Pricing</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Simple, Transparent Pricing</h2>
+                <div className="inline-block rounded-lg bg-emerald-100 px-3 py-1 text-sm text-emerald-700">
+                  Pricing
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                  Simple, Transparent Pricing
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Choose the plan that's right for your team. All plans include a 14-day free trial.
+                  Choose the plan that's right for your team. All plans include
+                  a 14-day free trial.
                 </p>
               </div>
             </AnimatedSection>
-            <AnimatedList className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-3" staggerDelay={200}>
+            <AnimatedList
+              className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3"
+              staggerDelay={200}
+            >
               {/* Starter Plan */}
               <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold">Starter</h3>
-                  <p className="text-sm text-muted-foreground">Perfect for small teams just getting started.</p>
+                  <p className="text-sm text-muted-foreground">
+                    Perfect for small teams just getting started.
+                  </p>
                 </div>
                 <div className="mt-4 flex items-baseline">
                   <span className="text-3xl font-bold">$29</span>
-                  <span className="ml-1 text-sm text-muted-foreground">/month</span>
+                  <span className="ml-1 text-sm text-muted-foreground">
+                    /month
+                  </span>
                 </div>
                 <ul className="mt-4 space-y-2 text-sm">
                   <li className="flex items-center">
@@ -268,11 +327,15 @@ export default function LandingPage() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold">Pro</h3>
-                  <p className="text-sm text-muted-foreground">For growing teams that need more.</p>
+                  <p className="text-sm text-muted-foreground">
+                    For growing teams that need more.
+                  </p>
                 </div>
                 <div className="mt-4 flex items-baseline">
                   <span className="text-3xl font-bold">$79</span>
-                  <span className="ml-1 text-sm text-muted-foreground">/month</span>
+                  <span className="ml-1 text-sm text-muted-foreground">
+                    /month
+                  </span>
                 </div>
                 <ul className="mt-4 space-y-2 text-sm">
                   <li className="flex items-center">
@@ -305,11 +368,15 @@ export default function LandingPage() {
               <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold">Enterprise</h3>
-                  <p className="text-sm text-muted-foreground">For large organizations with specific needs.</p>
+                  <p className="text-sm text-muted-foreground">
+                    For large organizations with specific needs.
+                  </p>
                 </div>
                 <div className="mt-4 flex items-baseline">
                   <span className="text-3xl font-bold">$199</span>
-                  <span className="ml-1 text-sm text-muted-foreground">/month</span>
+                  <span className="ml-1 text-sm text-muted-foreground">
+                    /month
+                  </span>
                 </div>
                 <ul className="mt-4 space-y-2 text-sm">
                   <li className="flex items-center">
@@ -346,18 +413,27 @@ export default function LandingPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
+        <section
+          id="contact"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
+          <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <AnimatedSection className="flex flex-col justify-center space-y-4" direction="left">
+              <AnimatedSection
+                className="flex flex-col justify-center space-y-4"
+                direction="left"
+              >
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-emerald-100 px-3 py-1 text-sm text-emerald-700">
                     Contact Us
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Get in Touch</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    Get in Touch
+                  </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    Have questions about StreamLine? Our team is here to help. Fill out the form and we'll get back to
-                    you as soon as possible.
+                    Have questions about StreamLine? Our team is here to help.
+                    Fill out the form and we'll get back to you as soon as
+                    possible.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -380,7 +456,9 @@ export default function LandingPage() {
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Phone</p>
-                      <p className="text-sm text-muted-foreground">+1 (555) 000-0000</p>
+                      <p className="text-sm text-muted-foreground">
+                        +1 (555) 000-0000
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -403,7 +481,9 @@ export default function LandingPage() {
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Email</p>
-                      <p className="text-sm text-muted-foreground">hello@streamline.com</p>
+                      <p className="text-sm text-muted-foreground">
+                        hello@streamline.com
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -426,12 +506,18 @@ export default function LandingPage() {
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Location</p>
-                      <p className="text-sm text-muted-foreground">123 Innovation Drive, San Francisco, CA 94103</p>
+                      <p className="text-sm text-muted-foreground">
+                        123 Innovation Drive, San Francisco, CA 94103
+                      </p>
                     </div>
                   </div>
                 </div>
               </AnimatedSection>
-              <AnimatedSection className="rounded-lg border bg-background p-6 shadow-sm" direction="right" delay={200}>
+              <AnimatedSection
+                className="rounded-lg border bg-background p-6 shadow-sm"
+                direction="right"
+                delay={200}
+              >
                 <ContactForm />
               </AnimatedSection>
             </div>
@@ -440,14 +526,15 @@ export default function LandingPage() {
 
         {/* Final CTA Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
                   Ready to Transform Your Workflow?
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                  Join thousands of teams already using StreamLine to boost productivity and deliver results.
+                  Join thousands of teams already using StreamLine to boost
+                  productivity and deliver results.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -458,7 +545,9 @@ export default function LandingPage() {
                   Schedule a Demo <ArrowRight className="ml-2 h-4 w-4" />
                 </ButtonWithAnimation>
               </div>
-              <p className="text-xs text-muted-foreground">No credit card required. 14-day free trial.</p>
+              <p className="text-xs text-muted-foreground">
+                No credit card required. 14-day free trial.
+              </p>
             </AnimatedSection>
           </div>
         </section>
@@ -466,49 +555,71 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <div className="flex items-center gap-2">
             <BarChart3 className="h-6 w-6 text-emerald-500" />
             <span className="text-lg font-bold">StreamLine</span>
           </div>
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <nav className="flex gap-4 md:gap-6">
-              <Link href="#" className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4">
+              <Link
+                href="#"
+                className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4">
+              <Link
+                href="#"
+                className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
+              >
                 Terms of Service
               </Link>
-              <Link href="#" className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4">
+              <Link
+                href="#"
+                className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
+              >
                 Contact
               </Link>
             </nav>
             <div className="flex items-center gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Twitter className="h-4 w-4" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Instagram className="h-4 w-4" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="#"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </div>
           </div>
         </div>
-        <div className="container mt-2 md:mt-0">
+        <div className="container mx-auto px-4 md:px-6 my-2 md:mt-0">
           <p className="text-center text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} StreamLine, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} StreamLine, Inc. All rights
+            reserved.
           </p>
         </div>
       </footer>
-    </div>
-  )
+    </>
+  );
 }

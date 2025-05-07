@@ -1,20 +1,22 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
-}
+  title: "StreamLine - Modern landing page template",
+  description:
+    "StreamLine is a modern landing page template built with Next.js, Tailwind CSS, and Radix UI.",
+  generator: "v0.dev - https://v0.dev",
+  applicationName: "StreamLine",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body>{children}</body>
     </html>
-  )
+  );
 }
