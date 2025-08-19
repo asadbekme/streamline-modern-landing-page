@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   title: "StreamLine - Modern landing page template",
   description:
     "StreamLine is a modern landing page template built with Next.js, Tailwind CSS, and Radix UI.",
-  generator: "v0.dev - https://v0.dev",
   applicationName: "StreamLine",
 };
 

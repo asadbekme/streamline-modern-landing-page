@@ -13,7 +13,7 @@ interface AnimatedSectionProps {
   threshold?: number;
 }
 
-export function AnimatedSection({
+function AnimatedSection({
   children,
   className,
   delay = 0,
@@ -94,3 +94,5 @@ export function AnimatedSection({
     </div>
   );
 }
+
+export default AnimatedSection;

@@ -14,7 +14,7 @@ interface AnimatedListProps {
   threshold?: number;
 }
 
-export function AnimatedList({
+function AnimatedList({
   children,
   className,
   itemClassName,
@@ -107,3 +107,5 @@ export function AnimatedList({
     </div>
   );
 }
+
+export default AnimatedList;

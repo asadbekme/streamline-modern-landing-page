@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 
-export function MobileNav() {
+function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -74,3 +74,5 @@ export function MobileNav() {
     </Sheet>
   );
 }
+
+export default MobileNav;
