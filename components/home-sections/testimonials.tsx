@@ -1,5 +1,7 @@
+import Image from "next/image";
 import AnimatedList from "../animated-list";
 import AnimatedSection from "../animated-section";
+import { testimonials } from "./data";
 
 function Testimonials() {
   return (
@@ -23,55 +25,35 @@ function Testimonials() {
           className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3"
           staggerDelay={200}
         >
-          <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">
-                "StreamLine has completely transformed how our team works. We've
-                cut our project delivery time in half!"
-              </p>
-            </div>
-            <div className="flex items-center space-x-4 pt-4">
-              <div className="rounded-full bg-muted h-10 w-10"></div>
-              <div>
-                <p className="text-sm font-medium">Sarah Johnson</p>
-                <p className="text-xs text-muted-foreground">CTO, TechCorp</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">
-                "The analytics features alone are worth the investment. We've
-                gained insights we never had before."
-              </p>
-            </div>
-            <div className="flex items-center space-x-4 pt-4">
-              <div className="rounded-full bg-muted h-10 w-10"></div>
-              <div>
-                <p className="text-sm font-medium">Michael Chen</p>
-                <p className="text-xs text-muted-foreground">
-                  Product Manager, InnovateCo
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.name}
+              className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+            >
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground">
+                  "{testimonial.quote}"
                 </p>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">
-                "Customer support is exceptional. Any issues we've had were
-                resolved within hours, not days."
-              </p>
-            </div>
-            <div className="flex items-center space-x-4 pt-4">
-              <div className="rounded-full bg-muted h-10 w-10"></div>
-              <div>
-                <p className="text-sm font-medium">Emily Rodriguez</p>
-                <p className="text-xs text-muted-foreground">
-                  Operations Director, GrowthLabs
-                </p>
+              <div className="flex items-center space-x-4 pt-4">
+                <div className="size-10 bg-muted rounded-full">
+                  <Image
+                    src={testimonial.imageSrc}
+                    alt={testimonial.name}
+                    width={40}
+                    height={40}
+                    className="rounded-full size-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium">{testimonial.name}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    {testimonial.position}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </AnimatedList>
       </div>
     </section>

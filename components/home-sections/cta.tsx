@@ -21,7 +21,7 @@ function CTA() {
               Start Your Free Trial
             </ButtonWithAnimation>
             <ButtonWithAnimation variant="outline">
-              Schedule a Demo <ArrowRight className="ml-2 h-4 w-4" />
+              Schedule a Demo <ArrowRight className="ml-2 size-4" />
             </ButtonWithAnimation>
           </div>
           <p className="text-xs text-muted-foreground">

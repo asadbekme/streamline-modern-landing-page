@@ -1,64 +1,40 @@
 import Link from "next/link";
-import { BarChart3, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { BarChart3 } from "lucide-react";
+import { footerLinks, socialLinks } from "./data";
 
 function Footer() {
   return (
-    <footer className="w-full border-t py-6 md:py-0">
+    <footer className="w-full border-t py-6 md:py-3">
       <div className="container mx-auto px-4 md:px-6 flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
         <div className="flex items-center gap-2">
-          <BarChart3 className="h-6 w-6 text-emerald-500" />
+          <BarChart3 className="size-6 text-emerald-500" />
           <span className="text-lg font-bold">StreamLine</span>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           <nav className="flex gap-4 md:gap-6">
-            <Link
-              href="#"
-              className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="#"
-              className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="#"
-              className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
-            >
-              Contact
-            </Link>
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs md:text-sm text-muted-foreground hover:underline underline-offset-4"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className="flex items-center gap-4">
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Twitter className="h-4 w-4" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Instagram className="h-4 w-4" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Github className="h-4 w-4" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <Linkedin className="h-4 w-4" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
+            {socialLinks.map(({ href, icon: Icon, label }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <Icon className="size-4" />
+                <span className="sr-only">{label}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

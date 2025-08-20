@@ -1,6 +1,6 @@
-import { BarChart3, Clock, Shield, Zap } from "lucide-react";
 import AnimatedSection from "../animated-section";
 import AnimatedList from "../animated-list";
+import { features } from "./data";
 
 function Features() {
   return (
@@ -24,45 +24,23 @@ function Features() {
           className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 lg:grid-cols-4"
           staggerDelay={150}
         >
-          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="rounded-full bg-emerald-100 p-3">
-              <Zap className="h-6 w-6 text-emerald-600" />
-            </div>
-            <h3 className="text-xl font-bold">Lightning Fast</h3>
-            <p className="text-center text-sm text-muted-foreground">
-              Our platform is optimized for speed, ensuring your team can work
-              without delays.
-            </p>
-          </div>
-          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="rounded-full bg-emerald-100 p-3">
-              <Shield className="h-6 w-6 text-emerald-600" />
-            </div>
-            <h3 className="text-xl font-bold">Secure</h3>
-            <p className="text-center text-sm text-muted-foreground">
-              Enterprise-grade security to keep your data safe and protected at
-              all times.
-            </p>
-          </div>
-          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="rounded-full bg-emerald-100 p-3">
-              <BarChart3 className="h-6 w-6 text-emerald-600" />
-            </div>
-            <h3 className="text-xl font-bold">Analytics</h3>
-            <p className="text-center text-sm text-muted-foreground">
-              Comprehensive analytics to help you make data-driven decisions.
-            </p>
-          </div>
-          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="rounded-full bg-emerald-100 p-3">
-              <Clock className="h-6 w-6 text-emerald-600" />
-            </div>
-            <h3 className="text-xl font-bold">Time-Saving</h3>
-            <p className="text-center text-sm text-muted-foreground">
-              Automation features that save your team hours of manual work every
-              week.
-            </p>
-          </div>
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.name}
+                className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+              >
+                <div className="rounded-full bg-emerald-100 p-3">
+                  <Icon className="size-6 text-emerald-600" />
+                </div>
+                <h3 className="text-xl font-bold">{feature.name}</h3>
+                <p className="text-center text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </AnimatedList>
       </div>
     </section>

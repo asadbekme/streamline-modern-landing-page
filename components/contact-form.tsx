@@ -61,7 +61,7 @@ function ContactForm() {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 text-center p-6 border rounded-lg bg-emerald-50 dark:bg-emerald-950/20">
         <div className="rounded-full bg-emerald-100 p-3 dark:bg-emerald-900">
-          <CheckCircle2 className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+          <CheckCircle2 className="size-6 text-emerald-600 dark:text-emerald-400" />
         </div>
         <h3 className="text-xl font-bold">Message Sent!</h3>
         <p className="text-muted-foreground">
@@ -146,7 +146,7 @@ function ContactForm() {
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 size-4 animate-spin" />
               Sending...
             </>
           ) : (

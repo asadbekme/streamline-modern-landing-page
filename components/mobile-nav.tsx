@@ -10,6 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
+import { navigationLinks } from "./home-sections/data";
 
 function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -26,40 +27,22 @@ function MobileNav() {
         <div className="flex flex-col gap-6 px-2 py-6">
           <div className="flex items-center justify-between">
             <SheetTitle className="font-bold">Menu</SheetTitle>
-            <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
+            {/* <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
               <X className="h-5 w-5" />
               <span className="sr-only">Close menu</span>
-            </Button>
+            </Button> */}
           </div>
           <nav className="flex flex-col gap-4">
-            <Link
-              href="#features"
-              className="text-lg font-medium hover:text-emerald-500 transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              Features
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-lg font-medium hover:text-emerald-500 transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-lg font-medium hover:text-emerald-500 transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#contact"
-              className="text-lg font-medium hover:text-emerald-500 transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              Contact
-            </Link>
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-lg font-medium hover:text-emerald-500 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className="mt-4">
             <Button

@@ -1,7 +1,9 @@
 import { CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import AnimatedList from "../animated-list";
 import AnimatedSection from "../animated-section";
 import { ButtonWithAnimation } from "../button-with-animation";
+import { plans } from "./data";
 
 function Pricing() {
   return (
@@ -25,125 +27,52 @@ function Pricing() {
           className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3"
           staggerDelay={200}
         >
-          {/* Starter Plan */}
-          <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="space-y-2">
-              <h3 className="text-2xl font-bold">Starter</h3>
-              <p className="text-sm text-muted-foreground">
-                Perfect for small teams just getting started.
-              </p>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-3xl font-bold">$29</span>
-              <span className="ml-1 text-sm text-muted-foreground">/month</span>
-            </div>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Up to 5 team members</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Basic analytics</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>5GB storage</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Email support</span>
-              </li>
-            </ul>
-            <ButtonWithAnimation className="mt-6 bg-emerald-500 hover:bg-emerald-600">
-              Get Started
-            </ButtonWithAnimation>
-          </div>
+          {plans.map((plan) => {
+            const planId = plan.id;
+            const isPopular = planId === 2;
 
-          {/* Pro Plan */}
-          <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm relative transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-white">
-              Most Popular
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-2xl font-bold">Pro</h3>
-              <p className="text-sm text-muted-foreground">
-                For growing teams that need more.
-              </p>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-3xl font-bold">$79</span>
-              <span className="ml-1 text-sm text-muted-foreground">/month</span>
-            </div>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Up to 20 team members</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Advanced analytics</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>20GB storage</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Priority support</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Advanced integrations</span>
-              </li>
-            </ul>
-            <ButtonWithAnimation className="mt-6 bg-emerald-500 hover:bg-emerald-600">
-              Get Started
-            </ButtonWithAnimation>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-            <div className="space-y-2">
-              <h3 className="text-2xl font-bold">Enterprise</h3>
-              <p className="text-sm text-muted-foreground">
-                For large organizations with specific needs.
-              </p>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-3xl font-bold">$199</span>
-              <span className="ml-1 text-sm text-muted-foreground">/month</span>
-            </div>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Unlimited team members</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Custom analytics</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Unlimited storage</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>24/7 dedicated support</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>Custom integrations</span>
-              </li>
-              <li className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-emerald-500" />
-                <span>On-premise deployment option</span>
-              </li>
-            </ul>
-            <ButtonWithAnimation className="mt-6 bg-emerald-500 hover:bg-emerald-600">
-              Contact Sales
-            </ButtonWithAnimation>
-          </div>
+            return (
+              <div
+                key={planId}
+                className={cn(
+                  "flex flex-col rounded-lg border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 md:min-h-[422px]",
+                  isPopular && "relative"
+                )}
+              >
+                {isPopular && (
+                  <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-white">
+                    Most Popular
+                  </div>
+                )}
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {plan.description}
+                  </p>
+                </div>
+                <div className="mt-4 flex items-baseline">
+                  <span className="text-3xl font-bold">{plan.price}</span>
+                  <span className="ml-1 text-sm text-muted-foreground">
+                    /month
+                  </span>
+                </div>
+                <ul className="mt-4 space-y-2 text-sm">
+                  {plan.features.map((feature, index) => (
+                    <li
+                      key={`${plan.name}-${index}`}
+                      className="flex items-center"
+                    >
+                      <CheckCircle2 className="mr-2 size-4 text-emerald-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ButtonWithAnimation className="mt-6 md:mt-auto bg-emerald-500 hover:bg-emerald-600">
+                  Get Started
+                </ButtonWithAnimation>
+              </div>
+            );
+          })}
         </AnimatedList>
       </div>
     </section>

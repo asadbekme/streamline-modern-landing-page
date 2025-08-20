@@ -31,10 +31,10 @@ function Hero() {
           </AnimatedSection>
           <AnimatedSection className="mx-auto" direction="right" delay={300}>
             <Image
-              src="/placeholder.svg?height=550&width=550"
+              src="/AI-human.webp"
               width={550}
               height={550}
-              alt="Dashboard Preview"
+              alt="AI Human"
               className="aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             />
           </AnimatedSection>
